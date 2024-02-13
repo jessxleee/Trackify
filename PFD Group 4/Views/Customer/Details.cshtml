@@ -1,0 +1,287 @@
+﻿@model PFD_Group_4.Models.Application
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container-fluid" style="margin-top:130px;">
+    <h5> Digital Security Account : Status </h5>
+    <hr />
+    <div class="row content">
+
+        <div class="col-sm-4 sidenav border-right" style="margin-top:39px;">
+            @if (Model.ProgressStatus.ToString() == "0")
+            {
+                <div class="progress blue">
+                    <span class="progress-left">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <div class="progress-value">0%</div>
+                </div>
+                <p style=" margin-left: 21px; margin-top: 17px;"><b> Application Progress </b></p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;">  Particulars
+                    </li>
+
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;">  Documents
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;">  Verification
+                    </li>
+
+                </ul>
+            }
+            @if (Model.ProgressStatus.ToString() == "1")
+            {
+                <div class="progress red">
+                    <span class="progress-left">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <div class="progress-value">50%</div>
+                </div>
+                <p style=" margin-left: 21px; margin-top: 17px;"><b> Application Progress </b></p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;"> Particulars
+                    </li>
+
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;"> Documents
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;">  Verification
+                    </li>
+
+                </ul>
+
+            }
+            @if (Model.ProgressStatus.ToString() == "2")
+            {
+                <div class="progress yellow">
+                    <span class="progress-left">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <div class="progress-value">75%</div>
+                </div>
+                <p style=" margin-left: 21px; margin-top: 17px;"><b> Application Progress </b></p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/completeicon.png" style="height:20px; width:20px;"> Particulars
+                    </li>
+
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/completeicon.png" style="height:20px; width:20px;"> Documents
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/incomplete.jpg" style="height:20px; width:20px;">  Verification
+                    </li>
+
+                </ul>
+
+
+            }
+            @if (Model.ProgressStatus.ToString() == "3")
+            {
+
+                <div class="progress green">
+                    <span class="progress-left">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <div class="progress-value">100%</div>
+                </div>
+
+                <p style=" margin-left: 21px; margin-top: 17px;"><b> Application Progress </b></p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/completeicon.png" style="height:20px; width:20px;">  Particulars
+                    </li>
+
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/completeicon.png" style="height:20px; width:20px;">  Documents
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0" style="border-color: white;">
+                        <img src="~/images/completeicon.png" style="height:20px; width:20px;">  Verification
+                    </li>
+
+                </ul>
+
+
+            }
+        </div>
+
+        <div class="col-md-8" style="margin-top: 15px;">
+            @if (Model.ProgressStatus.ToString() == "1")
+            {
+
+
+                <ul class="bs4-order-tracking" style="margin-left: 335px; margin-right: -448px;">
+                    <li class="step active">
+                        <div><i>1</i></div> Compiling
+                    </li>
+                    <li class="step"> <div><i>2</i></div> Reviewing </li>
+                    <li class="step"> <div><i>3</i></div> Completed </li>
+                </ul>
+
+                <div class="col-xl-8" style="margin-left: 296px; margin-top: 127px;">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div class="card-header">Status</div>
+                        <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                            <p>Particulars</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 80%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">80%</span>
+                                </div>
+                            </div>
+                            <p>Application</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 10%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">10%</span>
+                                </div>
+                            </div>
+                            <p>Documents</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 10%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.ProgressStatus.ToString() == "2")
+            {
+
+
+
+                <ul class="bs4-order-tracking" style="margin-left: 335px; margin-right: -448px;">
+                    <li class="step active">
+                        <div><i>1</i></div> Compiling
+                    </li>
+                    <li class="step active"> <div><i>2</i></div> Reviewing </li>
+                    <li class="step"> <div><i>3</i></div> Completed </li>
+                </ul>
+
+                <div class="col-xl-8" style="margin-left: 296px; margin-top: 127px;">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div class="card-header">Status</div>
+                        <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                            <p>Particulars</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">100%</span>
+                                </div>
+                            </div>
+                            <p>Application</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 60%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">60%</span>
+                                </div>
+                            </div>
+                            <p>Documents</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 60%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">60%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @if (Model.ProgressStatus.ToString() == "3")
+            {
+
+                <ul class="bs4-order-tracking" style="margin-left: 300px; margin-right: -448px;">
+                    <li class="step active">
+                        <div><i>1</i></div> Compiling
+                    </li>
+                    <li class="step active"> <div><i>2</i></div> Reviewing </li>
+                    <li class="step active"> <div><i>3</i></div> Completed </li>
+                </ul>
+
+                <div class="col-xl-8" style="margin-left: 296px; margin-top: 127px;">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div class="card-header">Status</div>
+                        <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                            <p>Particulars</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">100%</span>
+                                </div>
+                            </div>
+                            <p>Application</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">100%</span>
+                                </div>
+                            </div>
+                            <p>Documents</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @if (Model.ProgressStatus.ToString() == "0")
+            {
+                <h3 style="margin-left:341px;">Error in Application</h3>
+                <h3 style="margin-left:341px;">Please look below for error information.</h3>
+                <div class="col-xl-8" style="margin-left: 296px; margin-top: 127px;">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div class="card-header">Status</div>
+                        <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                            <p>Particulars</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 80%;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">80%</span>
+                                </div>
+                            </div>
+                            <p>Application</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">Error</span>
+                                </div>
+                            </div>
+                            <p>Documents</p>
+                            <div class="progress2">
+                                <div data-percentage="0%" style="width: 100%;" class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-completed">Error</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>

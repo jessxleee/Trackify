@@ -1,0 +1,204 @@
+﻿@model PFD_Group_4.Models.Customer
+
+@{
+    ViewData["Title"] = "CustomerDetails";
+}
+<html>
+<head>
+    <style>
+        #progress {
+            position: relative;
+            margin-bottom: -47px;
+            justify-content: center;
+        }
+
+        #progress-bar {
+            position: absolute;
+            background: lightseagreen;
+            height: 5px;
+            width: 0%;
+            top: 50%;
+            left: 0;
+        }
+
+        #progress-num {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+            #progress-num::before {
+                content: "";
+                background-color: lightgray;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                height: 5px;
+                width: 67%;
+                z-index: -1;
+                left: 17%;
+            }
+
+            #progress-num .step {
+                border: 3px solid lightgray;
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                background-color: #fff;
+                font-family: sans-serif;
+                font-size: 14px;
+                position: relative;
+                z-index: 1;
+            }
+
+                #progress-num .step.active {
+                    border-color: lightseagreen;
+                    background-color: lightseagreen;
+                    color: #fff;
+                }
+
+                    #progress-num .step.active::after {
+                        content: none;
+                    }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    @*<button id="progress-prev" class="btn" disabled>Prev</button>
+        <button id="progress-next" class="btn">Next</button>*@
+
+
+    <h4 style="margin-top:107px;">Particulars</h4>
+    <hr />
+    <br /><br />
+    <div id="progress">
+        <div id="progress-bar"></div>
+        <ul id="progress-num">
+            <li class="step active">1</li>
+            <li class="step">2</li>
+            <li class="step">3</li>
+            @*<li class="step">4</li>*@
+        </ul>
+    </div>
+
+    @*<body style="margin-top:100px;">*@
+    <div style="margin-top:125px;">
+        <form>
+            <fieldset>
+                <div class="row mb-3">
+                    <label asp-for="CustomerName" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CustomerName" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CustomerNRIC" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CustomerNRIC" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CAddress" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CAddress" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CDOB" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CDOB" readonly class="form-control">
+
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CNationality" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        @if (Model.CNationality.ToString() == "S")
+                        {
+                            <input class="form-control" readonly value="Singaporean">
+                        }
+                        else if (Model.CNationality.ToString() == "P")
+                        {
+                            <input class="form-control" readonly value="Permananent Resident">
+                        }
+                        else
+                        {
+                            <input class="form-control" readonly value="Foreigner">
+                        }
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CRace" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CRace" readonly class="form-control">
+                    </div>
+                </div>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">
+                        @Html.DisplayNameFor(model => model.CGender)
+                    </legend>
+                    <div class="col-sm-10">
+                        @if (Model.CGender.ToString() == "F")
+                        {
+                            <div class="form-check form-check-inline">
+                                <input asp-for="CGender" class="form-check-input" type="radio" name="gridRadios" value="F" id="gridRadios1" disabled checked>
+                                <label asp-for="CGender" class="form-check-label" for="gridRadios1">
+                                    Female
+                                </label>
+
+                                <input asp-for="CGender" class="form-check-input" type="radio" margin="20px;" value="M" id="gridRadios2" disabled>
+                                <label asp-for="CGender" class="form-check-label" for="gridRadios2">
+                                    Male
+                                </label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-check form-check-inline">
+                                <input asp-for="CGender" class="form-check-input" type="radio" margin="20px;" value="F" id="gridRadios1" disabled>
+                                <label asp-for="CGender" style="margin-right:10px" class="form-check-label" for="gridRadios1">
+                                    Female
+                                </label>
+
+                                <input asp-for="CGender" class="form-check-input" type="radio" margin-right="20px;" value="M" id="gridRadios2" disabled checked>
+                                <label asp-for="CGender" margin="20px" class="form-check-label" for="gridRadios2">
+                                    Male
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+                <div class="row mb-3">
+                    <label asp-for="CEmailAddress" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CEmailAddress" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CMobileNumber" readonly class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="CMobileNumber" readonly class="form-control">
+                    </div>
+                </div>
+                <btn>
+                    <input class="btn btn-primary" type="submit" value="Next" asp-action="ApplicationForm" asp-controller="Application" style="margin-left:1100px;">
+                </btn>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        alert('Autofill of details? Click ok for approval');
+
+    </script>
+</body>
+</html>

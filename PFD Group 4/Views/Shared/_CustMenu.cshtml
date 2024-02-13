@@ -1,0 +1,95 @@
+﻿<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    .icon-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: #333333;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+    }
+
+    .table-responsive{
+        width: 70% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    #icon-button__badge {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        width: 20px;
+        height: 20px;
+        background: red;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+</style>
+<nav class="navbar fixed-top navbar-expand-md bg-light navbar-light" style="height:15%">
+    <!-- The brand(or icon) of the navbar -->
+
+    <a class="navbar-brand"><img id="logo" src="~/images/OBCB Logo.png" style="height:100px ;"> @*&nbsp;&nbsp;&nbsp;ZZFASHION*@</a><br />
+
+    <!-- Toggle/collapsible Button, also known as hamburger button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#staffNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Links in the navbar, displayed as drop-down list when collapsed -->
+    <div class="collapse navbar-collapse" id="staffNavbar">
+        <!-- Links that are aligned to the right, ml-auto: left margin auto-adjusted -->
+        <!-- Links in the navbar, displayed as drop-down list when collapsed -->
+        <div class="collapse navbar-collapse" id="staffNavbar" align="right">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/CustMenu">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Customer/Details">View Account Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Customer/FAQ">View FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Customer" asp-action="UpdateRead" id="removeBadge">
+                        <button type="button" class="icon-button">
+                            <span class="material-icons">notifications</span>
+                            <div id="icon-button__badge"></div>
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- A link for logging out user -->
+                    <a class="nav-link" href="~/Home/LogOut">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    document.getElementById("removeBadge").onclick = function () { removeStyleOfBadge() };
+
+    function removeStyleOfBadge() {
+        document.getElementById("icon-button__badge").className = "";
+    }
+</script>
+
+
+
+

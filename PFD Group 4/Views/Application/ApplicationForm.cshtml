@@ -1,0 +1,144 @@
+﻿@model PFD_Group_4.Models.Application
+
+@{
+    ViewData["Title"] = "ApplicationForm";
+}
+<html>
+<head>
+    <style>
+        #progress {
+            position: relative;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        #progress-bar {
+            position: absolute;
+            background: lightseagreen;
+            height: 5px;
+            width: 33%;
+            top: 50%;
+            left: 17%;
+            align-content: center;
+        }
+
+        #progress-num {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+            #progress-num::before {
+                content: "";
+                background-color: lightgray;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                height: 5px;
+                width: 67%;
+                z-index: -1;
+                left: 17%;
+            }
+
+
+            #progress-num .step {
+                border: 3px solid lightgray;
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                background-color: #fff;
+                font-family: sans-serif;
+                font-size: 14px;
+                position: relative;
+                z-index: 1;
+            }
+
+                #progress-num .step.active {
+                    border-color: lightseagreen;
+                    background-color: lightseagreen;
+                    color: #fff;
+                }
+
+                    #progress-num .step.active::after {
+                        content: "";
+                    }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <h4 style="margin-top: 125px;">Applying For OCBC Security Account</h4>
+    <hr />
+
+    <br /><br />
+    <div id="progress">
+        <div id="progress-bar"></div>
+        <ul id="progress-num">
+            <li class="step active">1</li>
+            <li class="step active">2</li>
+            <li class="step">3</li>
+            <!-- <li class="step">4</li>-->
+        </ul>
+    </div>
+    @*<button id="progress-prev" class="btn" disabled>Prev</button>
+        <button id="progress-next" class="btn">Next</button>-->*@
+
+    <div>
+    <form asp-action="ApplicationForm">
+        <fieldset>
+            <div class="row mb-3">
+                <label asp-for="CustomerID" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="CustomerID" readonly class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="SelfEmployed"
+                       class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9 col-md-5">
+                    <div class="form-group form-check-inline">
+                        <label class="col-form-label">
+                            <input asp-for="SelfEmployed" type="radio" value="S"
+                                   checked class="form-check-input" />
+                            <span style="font-weight:normal;
+                                padding-right:20px">Self-Employed</span>
+                        </label>
+                        <label class="col-form-label">
+                            <input asp-for="SelfEmployed" type="radio" value="E"
+                                   class="form-check-input" />
+                            <span style="font-weight:normal;
+                                padding-right:20px">Salary Employed</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="AnnualIncome" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9 col-md-5">
+                    <select asp-for="AnnualIncome"
+                            asp-items="@ViewData["AnnualIncomeList"] as List<SelectListItem>" class="form-control">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3" style="margin-left:auto; margin-top:175px;">
+                    <input class="btn btn-secondary bt-sm" type="submit" value="Back" asp-action="CustomerDetails" asp-controller="Application" style="margin-left:700px;">
+                    <input class="btn btn-primary bt-sm" type="submit" value="Next">
+
+                </div>
+            </div>
+            <span style="color:red">@TempData["ErrorMessage"]</span>
+
+        </fieldset>
+    </form>
+        </div>
+</body>
+</html>

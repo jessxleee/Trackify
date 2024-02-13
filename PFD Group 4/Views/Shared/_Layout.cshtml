@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OCBC bank</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+
+        @if (Context.Session.GetString("Role") != null)
+        {
+
+            if (Context.Session.GetString("Role") == "Customer")
+            {
+                @await Html.PartialAsync("_CustMenu.cshtml")
+            }
+            else if (Context.Session.GetString("Role") == "Staff")
+            {
+                @await Html.PartialAsync("_StaffMenu.cshtml")
+            }
+
+
+        }
+        else
+        {
+           
+           @await Html.PartialAsync("_ApplicationMenu.cshtml")
+            
+        }
+    </header><br />
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="margin-bottom:-80px; background-color:white;">
+        <div class="container">
+            PFD Assignment &copy;@DateTime.Today.Year - PDF_Team4
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

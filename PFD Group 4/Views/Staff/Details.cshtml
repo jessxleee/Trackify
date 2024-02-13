@@ -1,0 +1,192 @@
+﻿@model PFD_Group_4.Models.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+
+</head>
+
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <ul class="nav nav-borders" style="margin-top:100px;">
+        <li class="nav-item">
+            <a class="nav-link active" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
+        </li>
+        <li class="nav-item" style="margin-top:9px;">
+            @Html.ActionLink("Account", "Account", "Staff", new { id = Model.CustomerID }, new { @style = "color:grey; font-size:16px;" })
+        </li>
+            
+</ul>
+
+
+
+    <div class="row">
+        <div class="col-md-4" style="margin-top:21px;">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0" style="margin-top: 98px;">
+                <div class="card-header"> Application Status</div>
+                <div class="card-body text-center">
+                    @if (Model.ProgressStatus.ToString() == "0")
+                    {
+                        <div class="progress blue">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">0%</div>
+                        </div>
+                        <btn class="btn btn-primary">
+                            @Html.ActionLink("ViewStatus", "ViewStatus", "Staff", new { id = Model.CustomerID }, new { @style = "color:white;" })
+                        </btn>
+                    }
+                    @if (Model.ProgressStatus.ToString() == "1")
+                    {
+                        <div class="progress red">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">50%</div>
+                        </div>
+                        <p><b> Status : Compiling </b></p>
+                        <btn class="btn btn-primary">
+                            @Html.ActionLink("ViewStatus", "ViewStatus", "Staff", new { id = Model.CustomerID }, new { @style = "color:white;" })
+                        </btn>
+                    }
+                    @if (Model.ProgressStatus.ToString() == "2")
+                    {
+                        <div class="progress yellow">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">75%</div>
+                        </div>
+                        <p><b> Status : Reviewing</b></p>
+                        <btn class="btn btn-primary">
+                            @Html.ActionLink("ViewStatus", "ViewStatus", "Staff", new { id = Model.CustomerID }, new { @style = "color:white;" })
+                        </btn>
+                    }
+                    @if (Model.ProgressStatus.ToString() == "3")
+                    {
+
+                        <div class="progress green">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">100%</div>
+                        </div>
+                        <p><b> Status : Completed </b></p>
+                        <btn class="btn btn-primary" style="color:white;">
+                            @Html.ActionLink("ViewStatus", "ViewStatus", "Staff", new { id = Model.CustomerID }, new { @style = "color:white;" })
+                        </btn>
+
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-8" style="margin-left:auto; margin-top:120px">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                    <!-- Form Row-->
+                    <div class="row gx-3 mb-3">
+                        <fieldset class="FormContent">
+                            <div class="form-group row">
+                                <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerID")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CustomerName" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerName")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CustomerNRIC" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerNRIC")
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="CAddress" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CAddress")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CDOB"
+                                       class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CDOB")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CNationality"
+                                       class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CNationality")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CRace" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CRace")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CGender" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CGender")
+                                </div>
+                            </div>
+
+                                <div class="form-group row">
+                                    <label asp-for="CEmailAddress" class="col-sm-4 col-form-label"></label>
+                                    <div class="col-sm-8 form-control-plaintext">
+                                        @Html.Display("CEmailAddress")
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label asp-for="CMobileNumber" class="col-sm-4 col-form-label"></label>
+                                    <div class="col-sm-8 form-control-plaintext">
+                                        @Html.Display("CMobileNumber")
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!-- Save changes button-->
+                    <button class="btn btn-primary" type="button"
+                        onclick="location.href='@Url.ActionLink("EditDetails", "Staff", new { Id = Model.CustomerID})'">
+                        Edit
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script src="~/js/site.js"></script>
+    
+

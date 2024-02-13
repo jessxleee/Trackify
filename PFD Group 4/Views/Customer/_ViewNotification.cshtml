@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PFD_Group_4.Models.Notification>
+
+@if (Model.ToList().Count > 0)
+{
+    <h1>Notification</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var notification in Model)
+                {
+                <tr>
+                    <td>@notification.NotificationHeader</td>
+                    <td>
+                        @notification.NotificationBody
+                        <div class="blockquote-footer"> @notification.CreatedDate.ToString("dd MMM yyyy HH:mm tt")</div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="blockquote-footer">There is no notification</div>
+}

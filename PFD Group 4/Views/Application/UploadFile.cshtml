@@ -1,0 +1,154 @@
+﻿@model PFD_Group_4.Models.Application
+
+@{
+    ViewData["Title"] = "UploadFile";
+}
+<html>
+<head>
+    <style>
+        #progress {
+            position: relative;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        #progress-bar {
+            position: absolute;
+            background: lightseagreen;
+            height: 5px;
+            width: 33%;
+            top: 50%;
+            left: 17%;
+            align-content: center;
+        }
+
+        #progress-num {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+            #progress-num::before {
+                content: "";
+                background-color: lightgray;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                height: 5px;
+                width: 67%;
+                z-index: -1;
+                left: 17%;
+            }
+
+
+            #progress-num .step {
+                border: 3px solid lightgray;
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                background-color: #fff;
+                font-family: sans-serif;
+                font-size: 14px;
+                position: relative;
+                z-index: 1;
+            }
+
+                #progress-num .step.active {
+                    border-color: lightseagreen;
+                    background-color: lightseagreen;
+                    color: #fff;
+                }
+
+                    #progress-num .step.active::after {
+                        content: "";
+                    }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <h4 style="margin-top:144px;">Proof of Evidence</h4>
+    <hr />
+    <br /><br />
+    <div id="progress">
+        <div id="progress-bar"></div>
+        <ul id="progress-num">
+            <li class="step active">1</li>
+            <li class="step active">2</li>
+            <li class="step">3</li>
+            <!-- <li class="step">4</li>-->
+        </ul>
+    </div>
+
+
+
+    <form asp-action="UploadFile" enctype="multipart/form-data">
+        <fieldset class="FormContent">
+
+            <div class="row mb-3" hidden>
+                <label asp-for="CustomerID" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="CustomerID" readonly class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="fileToUpload"
+                       class="col-sm-3 col-form-label">
+                    Document (pdf format)
+                </label>
+                <div class="col-sm-9" style="margin-top:13px;">
+                    <input type="file" id="upbtn" onclick="checking()" asp-for="fileToUpload" accept="document/pdf" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                    <input type="submit" value="Upload"
+                           class="btn btn-primary" />
+                    <span style="color:red; margin-left:10px">@ViewData["Message"]</span>
+                </div>
+            </div>
+            <div class="col-sm-9 offset-sm-3" style="margin-left:auto; margin-top:75px;">
+                <input class="btn btn-secondary bt-sm" type="submit" value="Back" asp-action="CustomerDetails" asp-controller="Application">
+                <input class="btn btn-secondary bt-sm" type="submit" value="Create" asp-action="CustMenu" asp-controller="Home">
+            </div>
+        </fieldset>
+    </form>
+    <script>
+        const progressBar = document.getElementById("progress-bar");
+        const upbtn = document.getElementById("upbtn")
+        const steps = document.querySelectorAll(".step");
+        let active = 2;
+
+
+
+        function updateProgress() {
+            progressBar.style.width = 67 + "%";
+             // toggle active class on list items
+            steps.forEach((step, i) => {
+                if (i < active) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                }
+            });
+        };
+
+        function checking() {
+            active++;
+            if (active > steps.length) {
+                active = steps.length;
+            }
+            updateProgress();
+        }
+
+    </script>
+
+</body>
+</html>

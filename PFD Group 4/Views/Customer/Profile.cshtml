@@ -1,0 +1,106 @@
+﻿@model PFD_Group_4.Models.Customer
+
+@{
+    ViewData["Title"] = "Profile";
+   
+}
+
+<div class="container-xl px-4 mt-4">
+
+    <div class="row" style="margin-top: 132px;">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img src="~/images/profileicon.png" style="width:190px; height:190px;" alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <button class="btn btn-danger" type="button">Upload new image</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                    <!-- Form Row-->
+                    <div class="row gx-3 mb-3">
+                        <fieldset class="FormContent">
+                            <div class="form-group row">
+                                <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerID")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CustomerName" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerName")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CustomerNRIC" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerNRIC")
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="CAddress" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CAddress")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CDOB"
+                                       class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CDOB")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CNationality"
+                                       class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CNationality")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CRace" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CRace")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CGender" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CGender")
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="CEmailAddress" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CEmailAddress")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CMobileNumber" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CMobileNumber")
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- Save changes button-->
+                <button class="btn btn-danger" type="button">Edit</button>
+
+            </div>
+            </div>
+    </div>
+</div>

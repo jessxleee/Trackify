@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PFD_Group_4.Models.Notification>
+
+@{
+    ViewData["Title"] = "View Notification";
+}
+<html>
+<head>
+    <style>
+        h1 {
+            display: block;
+            text-align: center;
+        }
+
+        #icon-button__badge
+        {
+            background-color: transparent !important;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <partial name="~/Views/Shared/_CustMenu.cshtml" />
+    <partial name="~/Views/Customer/_ViewNotification.cshtml" model="@Model" />
+</body>
+<script src="~/js/notification.js"></script>
+</html>
+
+
+

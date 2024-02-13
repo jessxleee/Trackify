@@ -1,0 +1,251 @@
+﻿@model PFD_Group_4.Models.Application
+
+@{
+    ViewData["Title"] = "ViewStatus";
+    string status = Context.Session.GetString("Status");
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+</head>
+<h4 style="margin-top: 119px;">Application Status</h4>
+<hr />
+
+<div class="container-xl px-4 mt-4">
+    <form asp-action="ViewStatus">
+        <div class="form-group row" hidden>
+            <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-8 form-control-plaintext">
+                @Html.Display("CustomerID")
+            </div>
+        </div>
+        <div class="form-group row" hidden>
+            <label asp-for="ProgressStatus"
+                   class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-8 form-control-plaintext">
+                @Html.Display("ProgressStatus")
+            </div>
+        </div>
+        <div class="col-sm-9 offset-sm-3">
+            <input type="submit" value="Update"
+                   class="btn btn-danger" style="margin-left:697px;" />
+        </div>
+    </form>
+    <span style="color:black">@TempData["ErrorMessage"]</span>
+
+    @if (status == "1")
+    {
+        <form asp-action = "Error" >
+    <div class="form-group row" hidden>
+        <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+        <div class="col-sm-8 form-control-plaintext">
+            @Html.Display("CustomerID")
+        </div>
+    </div>
+    <div class="form-group row" hidden>
+        <label asp-for="ProgressStatus"
+               class="col-sm-4 col-form-label"></label>
+        <div class="col-sm-8 form-control-plaintext">
+            @Html.Display("ProgressStatus")
+        </div>
+    </div>
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Error</button>
+
+    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Status Overview
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Set @Html.Display("CustomerID") to error status? Click OK to proceed.
+                    <div class="col-sm-9 offset-sm-3">
+                        <input type="submit" value="OK"
+                               class="btn btn-danger" style="margin-left:484px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <div class="card-1 card-timeline px-2 table-borderless">
+        <ul class="bs4-order-tracking" style="margin-left:97px; margin-right:-177px;">
+            <li class="step active">
+                <div><i>1</i></div> Compiling
+            </li>
+            <li class="step"> <div><i>2</i></div> Reviewing </li>
+            <li class="step"> <div><i>3</i></div> Completed </li>
+        </ul>
+    </div>
+
+}
+    @if (status == "2")
+    {
+        <form asp-action="Error">
+            <div class="form-group row" hidden>
+                <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-8 form-control-plaintext">
+                    @Html.Display("CustomerID")
+                </div>
+            </div>
+            <div class="form-group row" hidden>
+                <label asp-for="ProgressStatus"
+                       class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-8 form-control-plaintext">
+                    @Html.Display("ProgressStatus")
+                </div>
+            </div>
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Error</button>
+
+            <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Status Overview
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Set @Html.Display("CustomerID") to error status? Click OK to proceed.
+                            <div class="col-sm-9 offset-sm-3">
+                                <input type="submit" value="OK"
+                                       class="btn btn-danger" style="margin-left:484px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="card-1 card-timeline px-2 border-none table-borderless">
+            <ul class="bs4-order-tracking" style="margin-left:97px; margin-right:-177px;">
+                <li class="step active">
+                    <div><i>1</i></div> Compiling
+                </li>
+                <li class="step active"> <div><i>2</i></div> Reviewing </li>
+                <li class="step"> <div><i>3</i></div> Completed </li>
+            </ul>
+        </div>
+
+    }
+    @if (status == "3")
+    {
+        <div class="card-1 card-timeline px-2 border-none table-borderless">
+            <ul class="bs4-order-tracking" style="margin-left:97px; margin-right:-177px;">
+                <li class="step active">
+                    <div><i>1</i></div> Compiling
+                </li>
+                <li class="step active"> <div><i>2</i></div> Reviewing </li>
+                <li class="step active"> <div><i>3</i></div> Completed </li>
+            </ul>
+        </div>
+    }
+    @if (status == "0")
+    {
+        <h3>Error in Application</h3>
+        <h3>Please look below for error information.</h3>
+    }
+
+    <div class="row">
+        <div class="col-md-6" style="margin-left:auto; margin-top:119px;">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                    <!-- Form Row-->
+                    <div class="row gx-3 mb-3">
+                        <fieldset class="FormContent">
+                            <div class="form-group row">
+                                <label asp-for="ApplicationID" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("ApplicationID")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("CustomerID")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="DateTimeApplied" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("DateTimeApplied")
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="SelfEmployed" class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("SelfEmployed")
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="AnnualIncome"
+                                       class="col-sm-4 col-form-label"></label>
+                                <div class="col-sm-8 form-control-plaintext">
+                                    @Html.Display("AnnualIncome")
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="margin-left:auto; margin-top:20px">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0" style="margin-top: 98px;">
+                <div class="card-header"> Application Status</div>
+                <div class="card-body text-center">
+                    @if (status == "0")
+                    {
+                        <h5><b>Error</b></h5>
+                        <p> Documents are not submitted in the correct format.</p>
+                        <p> Please refer to email for updates. </p>
+
+                    }
+                    @if (status == "1")
+                    {
+                        <h5><b> Application Status: 1/3  Compiling </b></h5>
+                        <p> Particulars and documents are currenly compiling. </p>
+                        <p> Particulars : Received </p>
+                        <p> Documents : Received </p>
+                        <p> Staff's Review : Not Done</p>
+                    }
+                    @if (status == "2")
+                    {
+                        <h5><b> Application Status: 2/3 Reviewing</b></h5>
+                        <p> Application is waiting to be reviewed. </p>
+                        <p> Particulars : Compiled</p>
+                        <p> Documents : Waiting to be reviewed </p>
+                        <p> Staff's Review : Not done </p>
+                    }
+                    @if (status == "3")
+                    {
+
+                        <h5><b> Application Status: 3/3 Completed</b></h5>
+                        <p> Application creation has completed. </p>
+                        <p> Particulars : Success</p>
+                        <p> Documents : Success</p>
+                        <p> Staff's Review : Done </p>
+
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

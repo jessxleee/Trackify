@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PFD_Group_4.Models.CustomerViewModel>
+
+
+
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+
+</head>
+
+
+
+<div class="container-fluid" style="margin-top:124px;">
+    <div class="row content">
+        <div class="col-md-3 sidenav border-right">
+            <form method="post" asp-action="Search">
+                <div class="input-group" style="margin-left:-9px; margin-bottom:51px;">
+                    <input type="text" name="CustomerID" id="CustomerID" class="form-control" style="margin-left:15px;" placeholder="Search Record">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-secondary" type="submit">
+                            <img src="~/images/search-icon.png" style="height:25px; width:25px;">
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <span style="color:red">@TempData["IdNotFound"]</span>
+
+
+            <div>
+                <h6 class="p-1 border-bottom">Filter By</h6>
+                <p class="mb-2">Status</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action mb-0 rounded" style="border-color: white;">
+                        <a href="~/Staff/Index">
+                            All
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0 rounded" style="border-color: white;">
+                        <a href="#">
+                            Compiling
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0 rounded" style="border-color: white;">
+                        <a href="~/Staff/Reviewing">
+                            Reviewing
+                        </a>
+                    </li>
+                    <li class="list-group-item list-group-item-action mb-0 rounded" style="border-color: white;">
+                        <a href="~/Staff/Completed">
+                            Completed
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-9" style="margin-left: 300px;">
+            <h4>Records</h4>
+            <div class="table-responsive">
+                <table id="viewCustomer" class="table project-list-table table-nowrap align-middle ">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @if (Model.ToList().Count > 0)
+                    {
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr onclick="location.href='@Url.ActionLink("Details", "Staff", new { Id = item.CustomerID })'" class="table-borderless">
+                                    <td>@item.CustomerID.ToString()</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.CEmailAddress</td>
+                                    <td>@item.ProgressStatus</td>
+                                    <td>
+                                        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg"><img src="~/images/delete-icon.png" style="height:25px; width:25px; margin-top:-14px;"></button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+
+
+
+                    }
+                </table>
+                <a asp-action="StaffMenu" asp-controller="Home">Back to List</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+    else
+    {
+<span style="color:red; margin-left: 446px;">No record found!</span>
+
+

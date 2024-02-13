@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "ApplicationType";
+}
+
+
+
+<body>
+    <container>
+        <div class="row" style="margin-top: 138px;">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Apply With SingPass</h5>
+                        <p class="card-text">Using MyInfo to retrieve necessary information for the application and be 1 step away from being done</p>
+                        <a class="btn btn-danger" disabled>Apply With SingPass</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Apply With OCBC</h5>
+                        <p class="card-text">Using exisiting credentials in OCBC to apply for a Digital Securities Account</p>
+                        <a class="btn btn-primary" type="submit" asp-action="CustomerDetails" asp-controller="Application">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </container>
+</body>
+

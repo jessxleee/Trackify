@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Use Unicode character encoding - multi-language compatibity -->
+    <meta charset="utf-8">
+    <!-- Set the initial view zooming scale for mobile device -->
+    <meta name="viewport" content="width = device-width,
+ initial-scale = 1" />
+    <title>OCBC Bank</title>
+    <link rel="icon" img src="../images/logo.png">
+    <!-- Reference to customized styling for this website -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="h-100 container" style="background-image: url('../images/OCBC Homepage.png'); background-size:cover; background-position:center center; ">
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light pr-2">
+            <div class="container">
+                <div style="flex:auto;">
+                    <img id="imgOCBCLogo" src="../images/OBCB Logo.png" style="width: 30%" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="d-flex">
+        <div class="col-sm-6 text-center py-4">
+            <div class="card border">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">User Login</h3>
+                    <img id="imgOCBCLogo" src="../images/usericon.png" style="width: 30%" />
+                    <a class="nav-link btn btn-danger" asp-controller="Home" asp-action="CustLogin">Go</a>
+                </div>
+            </div>
+        </div><br />
+        <div class="col-sm-6 text-center py-4">
+            <div class="card border">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">Staff Login</h3>
+                    <img id="imgOCBCLogo" src="../images/stafficon.png" style="width: 30%" />
+                    <a class="nav-link btn btn-danger" asp-controller="Home" asp-action="StaffLogin">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<footer class="border-bottom-0 text-muted" style="position: absolute; z-index: -1">
+    <div class="container text-white">
+        PFD Assignment &copy;@DateTime.Today.Year - PFD_Group4
+    </div>
+</footer>

@@ -1,0 +1,58 @@
+﻿@model PFD_Group_4.Models.Customer
+
+@{
+    ViewData["Title"] = "Account";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+</head>
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <nav class="nav nav-borders" style="margin-top:100px;">
+        <a class="nav-link" href="#" target="__blank">Profile</a>
+        <a class="nav-link active ms-0" href="#" target="__blank">Account</a>
+
+    </nav>
+    <div class="card card-header-actions mb-4" style="margin-top:40px;">
+        <div class="card-header">
+            OCBC Banking Accounts
+        </div>
+        <div class="card-body px-0">
+            <div class="d-flex align-items-center justify-content-between px-4">
+                <div class="d-flex align-items-center"></div>
+                <div class="ms-4" style="margin-right:725px;">
+                    <label asp-for="CDepositAccountNo"></label>
+                    <div class="text-xs text-muted">@Html.Display("CDepositAccountNo")</div>
+                </div>
+            </div>
+            <div class="ms-4 small" style="margin-left:980px; margin-top:7px;">
+                <div class="badge bg-light text-dark me-3">Default</div>
+                <a href="#!">Edit</a>
+            </div>
+        </div>
+
+        <!-- Payment method 2-->
+        @if (Model.CInvestAccountNo != null)
+        {
+            <hr>
+            <div class="card-body px-0">
+                <div class="d-flex align-items-center justify-content-between px-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-cc-mastercard fa-2x cc-color-mastercard"></i>
+                        <div class="ms-4" style="margin-left:35px;margin-top:-20px;">
+                            <label asp-for="CInvestAccountNo"></label>
+                            <div class="text-xs text-muted">@Html.Display("CInvestAccountNo")</div>
+                        </div>
+                    </div>
+                    <div class="ms-4 small" style="margin-bottom:21px;">
+                        <a class="text-muted me-3" href="#!">Make Default</a>
+                        <a href="#!">Edit</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>

@@ -1,0 +1,111 @@
+﻿@model PFD_Group_4.Models.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Edit Details";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <!--<script src="~/js/site.js"></script>-->
+</head>
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <nav class="nav nav-borders" style="margin-top:100px;">
+        <a class="nav-link active ms-0" href="#" target="__blank">Profile</a>
+        <a class="nav-link" href="~/Staff/Accounts" target="__blank">Accounts</a>
+        <a class="nav-link" href="~/Staff/Security" target="__blank">Security</a>
+
+    </nav>
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-md-4" style="margin-top:-77px;">
+        </div>
+    </div>
+    <div class="col-md-8" style="margin-left:18%; margin-top:20px">
+        <!-- Account details card-->
+        <div class="card mb-4">
+            <div class="card-header">Account Details</div>
+            <div class="card-body" style="padding-top:15px; padding-left:37px;">
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                    <!--<form asp-action="EditDetails" asp-controller="Staff">-->
+                    <!--<form>-->
+                    <fieldset class="FormContent">
+                        <div class="form-group row">
+                            <label asp-for="CustomerID" class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CustomerID")
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CustomerName" class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CustomerName")
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CustomerNRIC" class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CustomerNRIC")
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="CAddress" class="col-sm-4 col-form-label"></label>
+                            <input asp-for="CAddress" class="col-sm-8 form-control-plaintext"
+                                   contentEditable="true" style="background-color: #F8F9FA; width: 325px">
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CDOB"
+                                   class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CDOB")
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CNationality"
+                                   class="col-sm-4 col-form-label"></label>
+                            @*<input asp-for="CNationality" class="col-sm-8 form-control-plaintext"
+                                contentEditable="true" style="background-color: #F8F9FA">*@
+                            <select asp-for="CNationality" contentEditable="true" style="background-color: #F8F9FA;
+                                        width: 75px; text-align: center; border: hidden">
+                                <option value="S"> S </option>
+                                <option value="P"> P </option>
+                                <option value="F"> F </option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CRace" class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CRace")
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CGender" class="col-sm-4 col-form-label"></label>
+                            <div class="col-sm-8 form-control-plaintext">
+                                @Html.Display("CGender")
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="CEmailAddress" class="col-sm-4 col-form-label"></label>
+                            <input asp-for="CEmailAddress" class="col-sm-8 form-control-plaintext"
+                                   contentEditable="true" style="background-color: #F8F9FA" />
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CMobileNumber" class="col-sm-4 col-form-label"></label>
+                            <input asp-for="CMobileNumber" class="col-sm-8 form-control-plaintext"
+                                   contentEditable="true" style="background-color: #F8F9FA" />
+                        </div>
+                        <div>
+                            @ViewData["EditMessage"]
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Update" />
+                    </fieldset>
+                    <!--</form>-->
+                </div>
+            </div>
+            <!-- Save changes button-->
+            <!--<button class="btn btn-primary" type="button">Edit</button>-->
+        </div>
+    </div>
+</div>

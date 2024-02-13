@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Staff Main Page";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ZZ Fashion</title>
+    <link rel="icon" img src="~/images/B&W Logo.png">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<partial name="~/Views/Shared/_StaffMenu.cshtml" />
+<body style="margin-top:100px">
+    <div class="container">
+        <div class="row hidden-md-up">
+            <div class="col-sm-6 text-center py-4">
+                <div class="card border border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Records</h5>
+                        <img src="~/images/usericon.png"
+                             class="img-fluid w-25" alt="User Icon"><br />
+                        <a href="~/Staff/Index" class="btn btn-dark">View</a>
+                    </div>
+                </div>
+            </div><br>
+            <div class="col-sm-6 text-center py-4">
+                <div class="card border border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Incomplete Status</h5>
+                        <img src="~/images/statusicon.png"
+                             class="img-fluid w-25" alt="Search User Icon"><br />
+                        <a href="" class="btn btn-secondary">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center py-4">
+                <div class="card border border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Contact Support</strong></h5>
+                        <img src="~/images/supporticon.png"
+                             class="img-fluid w-25" alt="Voucher Icon"><br />
+                        <a href="" class="btn btn-secondary">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center py-4">
+                <div class="card border border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Support Services</strong></h5>
+                        <img src="~/images/settingicon.png"
+                             class="img-fluid w-25" alt="Redeem Icon"><br />
+                        <a href="" class="btn btn-secondary">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
